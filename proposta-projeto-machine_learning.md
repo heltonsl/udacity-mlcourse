@@ -1,13 +1,17 @@
 # Nanodegree Engenheiro de Machine Learning
 ## Proposta de projeto final
-Joe Udacity  
-31 de dezembro de 2050
+Helton Souza Lima
+abril de 2019
 
 ## Proposta
 _(aprox. 2-3 páginas)_
 
 ### Histórico do assunto
 _(aprox. 1-2 parágrafos)_
+
+O programa Bolsa Família é o maior programa de distribuição de renda do Brasil, através de um benefício em dinheiro transferido diretamente do governo federal para famílias dentro da linha da pobreza e extrema pobreza, para garantir um alívio mais imediato à pobreza, complementando a renda dessas famílias e condicionando à participação nos serviços de saúde e educação. De acordo com o [artigo](https://www.revistas.unijui.edu.br/index.php/desenvolvimentoemquestao/article/view/5799/5303) da Dra. Daniela Dias Kuhn
+
+
 
 Nesta seção, dê informações básicas sobre o assunto no qual o projeto está inserido. Informações históricas relevantes ao projeto devem ser incluídas. Deve estar claro como e por qual motivo um problema deste assunto pode ou deve ser resolvido. Pesquisas acadêmicas relacionadas devem ser citadas de forma adequada nesta seção, incluindo o porquê da pesquisa ser relevante. Encorajamos que seja mencionada qual foi a motivação pessoal do aluno para que ele realizasse a investigação de determinado problema nesse domínio, porém, isso não é obrigatório.
 
