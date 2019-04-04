@@ -1,5 +1,6 @@
 # Nanodegree Engenheiro de Machine Learning
 ## Proposta de projeto final
+
 Helton Souza Lima
 abril de 2019
 
@@ -23,7 +24,7 @@ De posse desses dados granularizados a nível de município brasileiro, propõe-
 
 ### Conjuntos de dados e entradas
 
-Os dados utilizados foram obtidos de duas fontes. A primeira fonte são os dados relacionados ao Índice de Desenvolvimento Humano Municipal ([IDHM](http://www.atlasbrasil.org.br/2013/pt/o_atlas/idhm/)), disponibilizado pelo site [Atlas do Desenvolvimento Humano no Brasil](http://www.atlasbrasil.org.br/2013/pt/home/). Os dados do IDHM são disponibilizados para cada um dos 5565 municípios brasileiros, abrangendo índices que podem ser agrupados em 3 dimensões: índices de longevidade, índices de acesso ao conhecimento e índices de renda. Os dados utilizados são do ano de 2010, ou seja, 7 anos após o ano de lançamento do PBF.
+Os dados utilizados foram obtidos de duas fontes. A primeira fonte são os dados relacionados ao Índice de Desenvolvimento Humano Municipal ([IDHM](http://www.atlasbrasil.org.br/2013/pt/o_atlas/idhm/)), disponibilizado pelo site [Atlas do Desenvolvimento Humano no Brasil](http://www.atlasbrasil.org.br/2013/pt/home/) ou no site da [Kaggle](https://www.kaggle.com/pauloeduneves/hdi-brazil-idh-brasil) Os dados do IDHM são disponibilizados para cada um dos 5565 municípios brasileiros, abrangendo índices que podem ser agrupados em 3 dimensões: índices de longevidade, índices de acesso ao conhecimento e índices de renda. Os dados utilizados são do ano de 2010, ou seja, 7 anos após o ano de lançamento do PBF.
 
 A segunda fonte são os dados relacionados à quantidade de famílias beneficiárias e o total de pagamentos disponibilizados pelo PBF para cada município brasileiro. Os dados são disponibilizados pelo [Ministério da Cidadania](https://aplicacoes.mds.gov.br/sagi/vis/data/data-table.php).
 
@@ -38,26 +39,32 @@ Uma questão a ser abordada é: se dentro do meu conjunto de treinamento houver 
 
 
 ### Modelo de referência (benchmark)
-_(aproximadamente 1-2 parágrafos)_
 
-Nesta seção, forneça os detalhes de um modelo ou resultado de referência que esteja relacionado ao assunto, definição do problema e solução proposta. Idealmente, o resultado ou modelo de referência contextualiza os métodos existentes ou informações conhecidas sobre o assunto e problema propostos, que podem então ser objetivamente comparados à solução. Descreva detalhadamente como o resultado ou modelo de referência é mensurável (pode ser medido por alguma métrica e claramente observado).
+Dentro do conjunto de dados já existe os valores que se deseja predizer, de forma que será possível calcular a acurácia dos algoritmos escolhidos. Esse trabalho, nesta fase inicial de análise, é útil no sentido de avaliar uma metodologia que pode ser aplicada a dados mais recentes em busca de identificar lugares onde há maior incidência de fraudes. Serão buscadas notícias sobre as fraudes já conhecidas e publicadas e, de posse dessas informações, avaliar os dados dos municípios afetados no ano de 2010. Notícias posteriores a esse ano, mas não tão distantes, serão as mais relevantes, por exemplo, entre os anos de 2011 e 2014.
+
 
 ### Métricas de avaliação
-_(aprox. 1-2 parágrafos)_
 
-Nesta seção, proponha ao menos uma métrica de avaliação que pode ser usada para quantificar o desempenho tanto do modelo de benchmark como do modelo de solução apresentados. A(s) métrica(s) de avaliação proposta(s) deve(m) ser adequada(s), considerando o contexto dos dados, da definição do problema e da solução pretendida. Descreva como a(s) métrica(s) de avaliação pode(m) ser obtida(s) e forneça um exemplo de representação matemática para ela(s) (se aplicável). Métricas de avaliação complexas devem ser claramente definidas e quantificáveis (podem ser expressas em termos matemáticos ou lógicos)
+Neste momento inicial de projeto da solução, a métrica que deverá ser utilizada é a F1_score, pois combina a precisão e revocação. Essa métrica poderá ser calculada pelo próprio scikit-learn comparando os valores previstos e os valores reais.
+
 
 ### Design do projeto
-_(aprox. 1 página)_
 
-Nesta seção final, sintetize um fluxo de trabalho teórico para obtenção de uma solução para o problema em questão. Discuta detalhadamente quais estratégias você considera utilizar, quais análises de dados podem ser necessárias de antemão e quais algoritmos serão considerados na sua implementação. O fluxo de trabalho e discussão propostos devem estar alinhados com as seções anteriores. Adicionalmente, você poderá incluir pequenas visualizações, pseudocódigo ou diagramas para auxiliar na descrição do design do projeto, mas não é obrigatório. A discussão deve seguir claramente o fluxo de trabalho proposto para o projeto de conclusão.
-
------------
-
-**Antes de enviar sua proposta, pergunte-se. . .**
-
-- A proposta que você escreveu segue uma estrutura bem organizada, similar ao modelo de projeto?
-- Todas as seções (em especial, **Descrição da solução** e **Design do projeto**) estão escritas de uma forma clara, concisa e específica? Existe algum termo ou frase ambígua que precise de esclarecimento?
-- O público-alvo de seu projeto será capaz de entender sua proposta?
-- Você revisou sua proposta de projeto adequadamente, de forma a minimizar a quantidade de erros gramaticais e ortográficos?
-- Todos os recursos usados neste projeto foram corretamente citados e referenciados?
+* Unir os dois datasets em apenas um dataset
+  * Através do campo "codmun6" do arquivo de IDHM e do campo "ibge" do arquivo do PBF
+  * Este é o identificador do município, em ambos os campos, utilizado pelo IBGE
+* Realizar análise inicial do arquivo
+  * Avaliar o Kernel inicial automático gerado no site do [Kaggle](https://www.kaggle.com/kerneler/starter-hdi-brazil-idh-brasil-80f68b4b-6). Embora precisaremos excluir os dados anteriores a 2010 (anos de 2000 e 1991)
+  * Verificar as correlações entre as variáveis usando as bibliotecas de análise de dados
+  * Avaliar variáveis que podem ser excluídas para o aprendizado dos modelos
+  * Identificar possíveis outliers e avaliar se a remoção será pertinente
+* Escolher algoritmos de machine learning a serem avaliados neste trabalho
+  * A analisar pelos dados que estão sendo avaliados e as restrições e objetivos das predições
+  * Verificar a possibilidade de pelo menos 3 algoritmos
+* Implementar o uso desses algoritmos e treiná-los
+* Realizar a predição nos dados de teste. 
+* Avaliar o F1 score dos algoritmos e escolher o melhor
+  * Cabe avaliar outra métrica
+  * Avaliar os dados mais discrepantes entre o que foi previsto e o real
+* Avaliar trabalhos futuros
+* Redigir o projeto final
