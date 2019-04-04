@@ -4,10 +4,8 @@ Helton Souza Lima
 abril de 2019
 
 ## Proposta
-_(aprox. 2-3 páginas)_
 
 ### Histórico do assunto
-_(aprox. 1-2 parágrafos)_
 
 O Programa Bolsa Família (PBF) é o maior programa de distribuição de renda do Brasil, através de um benefício em dinheiro transferido diretamente do governo federal para famílias dentro da linha da pobreza e extrema pobreza, para garantir um alívio mais imediato à pobreza, complementando a renda dessas famílias e condicionando à participação nos serviços de saúde e educação. De acordo com o [artigo](https://www.revistas.unijui.edu.br/index.php/desenvolvimentoemquestao/article/view/5799/5303) da Dra. Daniela Dias Kuhn, o programa foi efetivo na melhoria dos índices de desenvolvimento humano no Estado do Rio Grande do Sul. Podemos citar outro [estudo](http://www.anpad.org.br/admin/pdf/apb1239.pdf) que aponta a mesma conclusão para o Estado de Minas Gerais.
 
@@ -17,7 +15,6 @@ A empresa em que trabalho é a DATAPREV, empresa de processamento de dados do go
 
 
 ### Descrição do problema
-_(aprox. 1 parágrafo)_
 
 O público-alvo do PBF são as pessoas que estão dentro da faixa da pobreza ou pobreza extrema. Entende-se que os volumes financeiros disponibilizados para o programa é proporcional à quantidade de pessoas dentro das faixas sociais que são alvo do programa, de forma que, a partir de dados de informações sociais e econômicas, como a população total, esperança de vida ao nascer, taxa de analfabetismo, percentual de crianças na escola, taxa de frequência, renda per capita, percentual de distribuição de renda, proporção de pobres, etc, é possível predizer o volume financeiro a ser utilizado para o PBF. 
 
@@ -25,21 +22,20 @@ De posse desses dados granularizados a nível de município brasileiro, propõe-
 
 
 ### Conjuntos de dados e entradas
-_(aprox. 2-3 parágrafos)_
 
 Os dados utilizados foram obtidos de duas fontes. A primeira fonte são os dados relacionados ao Índice de Desenvolvimento Humano Municipal ([IDHM](http://www.atlasbrasil.org.br/2013/pt/o_atlas/idhm/)), disponibilizado pelo site [Atlas do Desenvolvimento Humano no Brasil](http://www.atlasbrasil.org.br/2013/pt/home/). Os dados do IDHM são disponibilizados para cada um dos 5565 municípios brasileiros, abrangendo índices que podem ser agrupados em 3 dimensões: índices de longevidade, índices de acesso ao conhecimento e índices de renda. Os dados utilizados são do ano de 2010, ou seja, 7 anos após o ano de lançamento do PBF.
 
 A segunda fonte são os dados relacionados à quantidade de famílias beneficiárias e o total de pagamentos disponibilizados pelo PBF para cada município brasileiro. Os dados são disponibilizados pelo [Ministério da Cidadania](https://aplicacoes.mds.gov.br/sagi/vis/data/data-table.php).
 
-Como ambos os conjuntos de dados são listados para cada município, é possível associarmos para um município os dados do IDHM e os dados de valores repassados do PBF. Desta forma, será possível treinar modelos de machine learning que poderão verificar a correlação entre as informações sociais dos municípios e os respectivos pagamentos do PBF. Parte dos dados servirão para treinamento do modelo e parte dos dados serão para o teste e validação.
+Como ambos os conjuntos de dados são listados para cada município, é possível associarmos para um município os dados do IDHM **e** os dados de valores repassados do PBF. Desta forma, será possível treinar modelos de machine learning que poderão verificar a correlação entre as informações sociais dos municípios e os respectivos pagamentos do PBF. Parte dos dados servirão para treinamento do modelo e parte dos dados serão para o teste e validação. 
 
 
 ### Descrição da solução
-_(aprox. 1 parágrafo)_
 
+Considerando a grande quantidade de variáveis que compõem a base e o cálculo do IDHM, inicialmente propõe-se a avaliação das variáveis que podem ser retiradas da base do IDHM sem prejuízos para a predição dos algoritmos. Em seguida, propõe-se realizar um _split_ dos dados para separar entre conjunto de treinamento, validação e testes. Em seguida, a utilização de pelo menos 3 algoritmos a serem avaliados e comparados quanto à sua acurácia. Por fim, a verificação dentre os casos de teste, aqueles que tiveram maior discrepância em relação à predição dos algoritmos. Essa discrepância pode estar associada às fraudes, que aumentam os valores dos recursos repassados.
 
+Uma questão a ser abordada é: se dentro do meu conjunto de treinamento houver casos que contenham fraudes, então o modelo será treinado já considerando as possíveis fraudes. Sendo assim, vai diminuir o seu poder de identificar os municípios com maior probabilidade de fraude. 
 
-Nesta seção, descreva claramente uma solução para o problema. A solução deve ser relevante ao assunto do projeto e adequada ao(s) conjunto(s) ou entrada(s) proposto(s). Descreva a solução detalhadamente, de forma que fique claro que o problema é quantificável (a solução pode ser expressa em termos matemáticos ou lógicos), mensurável (a solução pode ser medida por uma métrica e claramente observada) e replicável (a solução pode ser reproduzida e ocorre mais de uma vez).
 
 ### Modelo de referência (benchmark)
 _(aproximadamente 1-2 parágrafos)_
