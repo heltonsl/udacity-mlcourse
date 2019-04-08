@@ -43,10 +43,12 @@ Uma questão a ser abordada é: se dentro do meu conjunto de treinamento houver 
 
 Dentro do conjunto de dados já existem os valores que se deseja predizer, de forma que será possível calcular a acurácia dos algoritmos escolhidos. Esse trabalho, nesta fase inicial de análise, é útil no sentido de avaliar uma metodologia que pode ser aplicada a dados mais recentes em busca de identificar lugares onde há maior incidência de fraudes. Serão buscadas notícias sobre as fraudes já conhecidas e publicadas e, de posse dessas informações, avaliar os dados dos municípios afetados no ano de 2010. Notícias posteriores a esse ano, mas não tão distantes, serão as mais relevantes, por exemplo, entre os anos de 2011 e 2014.
 
+Não encontramos, até o momento, algum trabalho que realizou trabalho semelhante para que possamos realizar uma comparação direta. Sendo assim, o modelo que vamos usar como de referência será a utilização do modelo de Regressão Logística para realizar as predições.
+
 
 ### Métricas de avaliação
 
-Neste momento inicial de projeto da solução, a métrica que deverá ser utilizada é a F1_score, pois combina a precisão e revocação. Essa métrica poderá ser calculada pelo próprio scikit-learn comparando os valores previstos e os valores reais.
+Neste momento inicial de projeto da solução, já que o valor a ser previsto é um valor contínuo, podemos antecipar que a métrica que deverá ser utilizada é o Root Mean Squared Erros (RMSE), pois é uma métrica que avalia a distância entre o valor previsto e o valor real. Essa métrica poderá ser calculada pelo próprio scikit-learn comparando os valores previstos e os valores reais.
 
 
 ### Design do projeto
@@ -56,7 +58,7 @@ Neste momento inicial de projeto da solução, a métrica que deverá ser utiliz
   * Este é o identificador do município, em ambos os campos, utilizado pelo IBGE
 * Realizar análise inicial do arquivo
   * Realizar análise das variáveis. Quais são categóricas e quais são contínuas e avaliar seus padrões (média, mediana, moda, quartis, variância, desvio padrão, percentual)
-   * Avaliar o Kernel inicial automático gerado no site do [Kaggle](https://www.kaggle.com/kerneler/starter-hdi-brazil-idh-brasil-80f68b4b-6). Embora precisaremos excluir os dados anteriores a 2010 (anos de 2000 e 1991)
+   * Avaliar o Kernel inicial automático gerado no site do Kaggle [10]. Embora precisaremos excluir os dados anteriores a 2010 (anos de 2000 e 1991)
   * Verificar as correlações entre as variáveis usando as bibliotecas de análise de dados
    * Por exemplo: Scatter Plot, Correlation, Stacked Column Chart, T-test
   * Avaliar variáveis que podem ser excluídas para o aprendizado dos modelos
@@ -73,6 +75,7 @@ Neste momento inicial de projeto da solução, a métrica que deverá ser utiliz
   * Avaliar os dados mais discrepantes entre o que foi previsto e o real
 * Avaliar trabalhos futuros
 * Redigir o projeto final
+
 
 ### Referências
 
@@ -93,3 +96,5 @@ Neste momento inicial de projeto da solução, a métrica que deverá ser utiliz
 [8] [Human Development Indexes and Census data for Brazilian municipalities. Portal Kaggle](https://www.kaggle.com/pauloeduneves/hdi-brazil-idh-brasil)
 
 [9] [Visualizador de Dados Sociais. Um portal do Ministério da Cidadania](https://aplicacoes.mds.gov.br/sagi/vis/data/data-table.php)
+
+[10] [Human Development Indexes and Census data for Brazilian municipalities. Kaggle DataSet. Setembro/2018](https://www.kaggle.com/kerneler/starter-hdi-brazil-idh-brasil-80f68b4b-6)
